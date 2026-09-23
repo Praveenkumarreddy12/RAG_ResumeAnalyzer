@@ -33,6 +33,7 @@ def get_embeddings():
     )
 
 def load_text_file(file_path: str, source_name: str, doc_type: str) ->List[Document]:
+
     path = path(file_path)
     text = path.read_text(encoding = "utf-8", errors="ignore")
 
@@ -52,6 +53,7 @@ def split_documents(docs: List[Document], chunk_size = 1000, chunk_overlap: int 
                                    chunk_overlap = chunk_overlap,
                                    separators= [ "\n\n","\n",".",""])
     return splitter.split_documents(docs)
+
 
 def build_vectorstore(chunks: List[Document], persist_directory: str = DB_dir):
     if Path(persist_directory).exists():
@@ -74,6 +76,7 @@ def retrieve_context(vectorstore, query:str, k: int = 3):
     source_docs = docs
 
     return context, source_docs
+
 
 def run_career_coach(vectorstore, resume_text: str, jd_text: str, question: str):
     llm = get_llm()
@@ -111,6 +114,7 @@ keep the anser simple, actionable and beginner-friendly.
 
     return answer, source_docs
 
+# To generate the complete Report.
 def generate_complete_report(vectorstore, resume_text: str, jd_text: str):
     question = """
     Analyze this resume against this job description. Provide ATS-style, skill match,
