@@ -114,6 +114,8 @@ keep the anser simple, actionable and beginner-friendly.
 
     return answer, source_docs
 
+
+
 # To generate the complete Report.
 def generate_complete_report(vectorstore, resume_text: str, jd_text: str):
     question = """
