@@ -106,3 +106,5 @@ Sample resume and job description are available in the `data/` folder.
 ## Important Note
 
 For best compatibility with AI libraries, use Python 3.10, 3.11, or 3.12.
+egnore .env file because in that we are going to be store groq api key, so git doesn't aollow to store that file.
+So please be carefull while pushing the files to the git.
